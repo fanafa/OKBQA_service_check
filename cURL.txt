@@ -1,0 +1,102 @@
+
+service_check.module.cm
+curl -i -H 'Content-Type: application/json' -X POST -d '{
+     	"input": {
+     		"string": "Which rivers flow through Seoul?",
+     		"language": "en"
+     	},
+     	"conf": {"sequence": ["TGM", "DM", "QGM", "AGM"]}
+     }' http://ws.okbqa.org:7047/service_check.module.cm
+
+tgm_ko
+curl -H "Content-Type: application/json" -X POST -d '{ "string": "서울에 있는 산은 무엇인가?", "language": "ko" }' http://ws.okbqa.org:1666/sentgm
+
+tgm_en
+curl -H "Content-Type: application/json" -X POST -d '{
+           "string": "Which river flows through Seoul?",
+           "language": "en"
+         }' http://ws.okbqa.org:1515/templategeneration/rocknrole
+
+dm_ko
+curl -X POST -H "Content-Type:application/json" -d '{
+   "score":1,
+           "slots":[
+           {
+           "p":"is",
+           "s":"v2",
+           "o":"<http://lodqa.org/vocabulary/sort_of>"
+           },
+           {
+           "p":"is",
+           "s":"v3",
+           "o":"rdf:Class"
+           },
+           {
+           "p":"verbalization",
+           "s":"v3",
+           "o":"산"
+           },
+           {
+           "p":"is",
+           "s":"v4",
+           "o":"rdf:Property"
+           },
+           {
+           "p":"verbalization",
+           "s":"v4",
+           "o":"있"
+           },
+           {
+           "p":"is",
+           "s":"v5",
+           "o":"rdf:Resource|rdfs:Literal"
+           },
+           {
+           "p":"verbalization",
+           "s":"v5",
+           "o":"서울"
+           }
+           ],
+           "question":"서울에 있는 산은 무엇인가?",
+           "query":"SELECT v1 WHERE { ?v1 ?v2 ?v3 . ?v1 ?v4 ?v5 . } "
+           }' http://ws.okbqa.org:32559/korean_dm
+
+dm_en
+curl -G --data-urlencode 'data={"query": "SELECT ?v4 WHERE { ?v4 ?v2 ?v6 ; ?v7 ?v3 . } ", "slots": [{"p": "is", "s": "v7", "o": "<http://lodqa.org/vocabulary/sort_of>"}, {"p": "is", "s": "v3", "o": "rdf:Class"}, {"p": "verbalization", "s": "v3", "o": "rivers"},
+        {"p": "is", "s": "v2", "o": "rdf:Property"}, {"p": "verbalization", "s": "v2", "o": "flow"},
+        {"p": "is", "s": "v6", "o": "rdf:Resource|rdfs:Literal"}, {"p": "verbalization", "s": "v6", "o": "Seoul"}],
+        "score": "1.0", "question": "Which rivers flow through Seoul"}' http://ws.okbqa.org:2357/agdistis/run
+
+service_check.module.qgm(sparqlator 현재 Error) - {"message":"undefined local variable or method `data' for #<GraphFinderWrapperWS:0x007f6d74a00d00>"}
+curl -H "content-type:application/json" -d '{
+	"disambiguation": [
+            {
+            "entities": [{"var": "v6", "score": 1, "value": "http://dbpedia.org/resource/Seoul"}],
+            "classes": [
+            {"var": "v3", "score": 0.25, "value": "http://dbpedia.org/ontology/River"},
+            {"var": "v3", "score": 0.2564102564102564, "value": "http://dbpedia.org/ontology/River"}
+            ],
+            "score": 1,
+            "properties": [
+            {"var": "v2", "score": 0.2564102564102564, "value": "http://dbpedia.org/ontology/city"}
+            ]
+            }
+            ],
+            "template": {
+            "query": "SELECT ?v4 WHERE { ?v4 ?v2 ?v6 ; ?v7 ?v3 . }",
+            "slots": [
+            {"p": "is", "s": "v2", "o": "rdf:Property"},
+            {"p": "verbalization", "s": "v2", "o": "flow"},
+            {"p": "is", "s": "v6", "o": "rdf:Resource|rdfs:Literal"},
+            {"p": "verbalization", "s": "v6", "o": "Seoul"},
+            {"p": "is", "s": "v7", "o": "<http://lodqa.org/vocabulary/sort_of>"},
+            {"p": "is", "s": "v3", "o": "rdf:Class"},
+            {"p": "verbalization", "s": "v3", "o": "rivers"}
+            ],
+            "score": "1.0",
+            "question": "Which rivers flow through Seoul?"
+            }
+            }' http://ws.okbqa.org:38401/queries?max_hop=1
+
+service_check.module.agm
+curl -i -H 'Content-Type: application/json' -X POST -d '{"conf": {"answer_num": 5,"query_interval": 0.0},"queries": [{"query": "SELECT ?v4 WHERE { ?v4 ?v2 <http://dbpedia.org/resource/Seoul> ; ?v7 <http://dbpedia.org/ontology/River> . } "}]}' http://ws.okbqa.org:7745/service_check.module.agm
