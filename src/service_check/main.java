@@ -26,11 +26,12 @@ public class main {
             System.out.println("AGM Checking...");
             agm.agm_check();
 
-            Thread.sleep(3000);
+            Thread.sleep(10000);
         }
     }
 
 
+    //여기서 http response error 발생 시 telegram bot으로 보내주는 상황이면 좋을듯
     public static void result(HttpURLConnection con) throws IOException {
         StringBuilder sb = new StringBuilder();
         int HttpResult = con.getResponseCode();
@@ -42,9 +43,10 @@ public class main {
                 sb.append(line + "\n");
             }
             br.close();
-            System.out.println("" + sb.toString());
+            //System.out.println("" + sb.toString()); //JSON 출력
+            System.out.println(con.getResponseCode() + " " + con.getResponseMessage());
         } else {
-            System.out.println(con.getResponseMessage());
+            System.out.println(con.getResponseCode() + " " + con.getResponseMessage());
         }
     }
 }
