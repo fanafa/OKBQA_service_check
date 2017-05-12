@@ -1,14 +1,11 @@
 package service_check;
 
-import service_check.module.dm;
-import service_check.module.tgm;
+import service_check.module.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-
-
 
 /**
  * Created by Sung9 on 2017. 5. 10..
@@ -18,12 +15,16 @@ import java.net.HttpURLConnection;
 public class main {
     public static void main(String[] args) throws IOException, InterruptedException {
         while (true) {
-            //main.module.cm.cm_check();
+            System.out.println("CM Checking...");
+            cm.cm_check();
+            System.out.println("TGM Checking...");
             tgm.tgm_check();
+            System.out.println("DM Checking...");
             dm.dm_check();
-            //main.module.dm.dm_check();
-            //main.module.qgm.qgm_check();
-            //main.module.agm.agm_check();
+            System.out.println("QGM Checking...");
+            qgm.qgm_check();
+            System.out.println("AGM Checking...");
+            agm.agm_check();
 
             Thread.sleep(3000);
         }
