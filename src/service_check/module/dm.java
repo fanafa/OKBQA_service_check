@@ -32,7 +32,7 @@ public class dm {
         dm_ko();
     }
     static void dm_en() throws IOException {
-        String url = "http://ws.okbqa.org:2357/agdistis/run";
+        String url = "http://ws.okbqa.org:2357/agdistis/run?data=";
         //POST call = http://IP:2357/agdistis/disambiguate
         URL object = new URL(url);
 
