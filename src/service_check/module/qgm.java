@@ -32,6 +32,6 @@ public class qgm {
         wr.flush();
 
         //display what returns the POST request
-        result(con);
+        result(con, "agm");
     }
 }

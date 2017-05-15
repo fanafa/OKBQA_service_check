@@ -38,7 +38,7 @@ public class tgm {
         wr.flush();
 
         //display what returns the POST request
-        result(con);
+        result(con, "tgm_en");
     }
     static void tgm_ko() throws IOException {
         String url = "http://ws.okbqa.org:1666/sentgm";
@@ -61,6 +61,6 @@ public class tgm {
         wr.flush();
 
         //display what returns the POST request
-        result(con);
+        result(con, "tgm_ko");
     }
 }

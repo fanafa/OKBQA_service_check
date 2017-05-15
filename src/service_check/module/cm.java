@@ -29,6 +29,6 @@ public class cm {
         wr.flush();
 
         //display what returns the POST request
-        result(con);
+        result(con, "cm");
     }
 }
