@@ -31,7 +31,6 @@ public class main {
         }
     }
 
-    //여기서 http response error 발생 시 telegram bot으로 보내주는 상황이면 좋을듯
     public static void result(HttpURLConnection con, String module) throws IOException {
         StringBuilder sb = new StringBuilder();
         int HttpResult = con.getResponseCode();
@@ -43,12 +42,13 @@ public class main {
                 sb.append(line + "\n");
             }
             br.close();
-            //System.out.println("" + sb.toString()); //JSON 출력
+
             System.out.println(con.getResponseCode() + " " + con.getResponseMessage());
+            System.out.println("" + sb.toString()); // JSON 출력
+            json_verifier.verifier(sb.toString()); // verifying
         } else {
             System.out.println(con.getResponseCode() + " " + con.getResponseMessage());
             mail_send.sendmail(module, sb.toString(), con.getResponseCode() + " " + con.getResponseMessage());
         }
     }
-
 }
