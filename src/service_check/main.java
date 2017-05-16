@@ -15,6 +15,7 @@ import java.net.HttpURLConnection;
 public class main {
     public static void main(String[] args) throws IOException, InterruptedException {
         while (true) {
+
             System.out.println("CM Checking...");
             cm.cm_check();
             System.out.println("TGM Checking...");
@@ -26,7 +27,7 @@ public class main {
             System.out.println("AGM Checking...");
             agm.agm_check();
 
-            Thread.sleep(10000);
+            Thread.sleep(100000);
         }
     }
 
@@ -49,4 +50,5 @@ public class main {
             mail_send.sendmail(module, sb.toString(), con.getResponseCode() + " " + con.getResponseMessage());
         }
     }
+
 }
