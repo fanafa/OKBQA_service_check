@@ -113,7 +113,4 @@ public class mail_send {
             e.printStackTrace();
         }
     }
-    public static void mail_send_null(){
-
-    }
 }

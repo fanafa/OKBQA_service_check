@@ -54,7 +54,7 @@ public class main {
 
             if (sb.length() == 0){
                 System.out.println("This output is NULL!!");
-                mail_send.mail_send_null(); //
+                mail_send.sendmail(module, "null", "Output is null"); //
             }
             else {
                 System.out.println(con.getResponseCode() + " " + con.getResponseMessage());
