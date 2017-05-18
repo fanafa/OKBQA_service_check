@@ -44,40 +44,36 @@ public class mail_send {
         try{
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("swrc.okbqa@gmail.com"));//
-            message.setSubject("OKBQA Service Error / OKBQA 서비스 에러");
+            message.setSubject("OKBQA 서비스 에러");
 
             switch (module){
                 case "cm" :
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("fanafa0@gmail.com"));
-                    message.setText("Your OKBQA module \"CM\" has problem. " +
-                            "\n/ 당신의 OKBQA 모듈 \"CM\" 에서 문제가 발생했습니다"
-                            + "\n\nPlease check your module. / 모듈을 확인 바랍니다. \n\n"
-                            + " Error : " + error );//내용
+                    message.setText("당신의 OKBQA 모듈 \"CM\" 에서 문제가 발생했습니다. "
+                            + "\n\n모듈의 작동 상태를 확인 바랍니다. "
+                            + " \n\n Error : " + error );//내용
                     break;
                 case "tgm_en" :
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("fanafa0@gmail.com"));
-                    message.setText("Your OKBQA module \"English TGM\" has problem. '" +
-                            "\n/ 당신의 OKBQA 모듈 \"영어 TGM\" 에서 문제가 발생했습니다"
-                            + "\n\nPlease check your module. / 모듈을 확인 바랍니다. \n\n"
-                            + " Error : " + error );//내용
+                    message.setText("당신의 OKBQA 모듈 \"영어 TGM\" 에서 문제가 발생했습니다. "
+                            + "\n\n모듈의 작동 상태를 확인 바랍니다. "
+                            + " \n\n Error : " + error );//내용
                     break;
                 case "tgm_ko" :
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("fanafa0@gmail.com"));
-                    message.setText("Your OKBQA module \"Korean TGM\" has problem. " +
-                            "\n/ 당신의 OKBQA 모듈 \"한국어 TGM\" 에서 문제가 발생했습니다"
-                            + "\n\nPlease check your module. / 모듈을 확인 바랍니다. \n\n"
-                            + " Error : " + error );//내용
+                    message.setText("당신의 OKBQA 모듈 \"한국어 TGM\" 에서 문제가 발생했습니다. "
+                            + "\n\n모듈의 작동 상태를 확인 바랍니다. "
+                            + " \n\n Error : " + error );//내용
                     break;
                 case "dm_en" :
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("fanafa0@gmail.com"));
-                    message.setText("Your OKBQA module \"English DM\" has problem. " +
-                            "/ 당신의 OKBQA 모듈 \"영어 DM\" 에서 문제가 발생했습니다. "
-                            + "\n\nPlease check your module. / 모듈을 확인 바랍니다. \n\n"
-                            + " Error : " + error );//내용
+                    message.setText("당신의 OKBQA 모듈 \"영어 DM\" 에서 문제가 발생했습니다. "
+                            + "\n\n모듈의 작동 상태를 확인 바랍니다. "
+                            + " \n\n Error : " + error );//내용
                     break;
                 case "dm_ko" :
                     message.setRecipients(Message.RecipientType.TO,
@@ -89,18 +85,16 @@ public class mail_send {
                 case "qgm" :
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("fanafa0@gmail.com"));
-                    message.setText("Your OKBQA module \"QGM\" has problem. " +
-                            "\n/ 당신의 OKBQA 모듈 \"QGM\" 에서 문제가 발생했습니다"
-                            + "\n\n Please check your module. / 모듈을 확인 바랍니다. \n\n"
-                            + " Error : " + error );//내용
+                    message.setText("당신의 OKBQA 모듈 \"QGM\" 에서 문제가 발생했습니다. "
+                            + "\n\n모듈의 작동 상태를 확인 바랍니다. "
+                            + " \n\n Error : " + error );//내용
                     break;
                 case "agm" :
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("fanafa0@gmail.com"));
-                    message.setText("Your OKBQA module \"AGM\" has problem. " +
-                            "\n/ 당신의 OKBQA 모듈 \"AGM\" 에서 문제가 발생했습니다"
-                            + "\n\n Please check your module. / 모듈을 확인 바랍니다. \n\n"
-                            + " Error : " + error );//내용
+                    message.setText("당신의 OKBQA 모듈 \"AGM\" 에서 문제가 발생했습니다. "
+                            + "\n\n모듈의 작동 상태를 확인 바랍니다. "
+                            + " \n\n Error : " + error );//내용
                     break;
             }
 
