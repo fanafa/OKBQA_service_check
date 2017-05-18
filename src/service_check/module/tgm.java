@@ -1,6 +1,7 @@
 package service_check.module;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -14,11 +15,11 @@ import static service_check.main.result;
  */
 
 public class tgm {
-    public static void tgm_check() throws IOException {
+    public static void tgm_check() throws IOException, ParseException {
         tgm_en();
         tgm_ko();
     }
-    static void tgm_en() throws IOException {
+    static void tgm_en() throws IOException, ParseException {
         String url = "http://ws.okbqa.org:1515/templategeneration/rocknrole";
         URL object = new URL(url);
 
@@ -40,7 +41,7 @@ public class tgm {
         //display what returns the POST request
         result(con, "tgm_en");
     }
-    static void tgm_ko() throws IOException {
+    static void tgm_ko() throws IOException, ParseException {
         String url = "http://ws.okbqa.org:1666/sentgm";
         URL object = new URL(url);
 

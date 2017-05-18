@@ -5,6 +5,5 @@ package service_check;
  */
 public class json_verifier {
     public static void verifier(String input){
-
     }
 }

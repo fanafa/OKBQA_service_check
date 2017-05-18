@@ -1,5 +1,7 @@
 package service_check.module;
 
+import org.json.simple.parser.ParseException;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -11,10 +13,10 @@ import static service_check.main.result;
  * Created by Sung9 on 2017. 5. 10..
  */
 public class qgm {
-    public static void qgm_check() throws IOException {
+    public static void qgm_check() throws IOException, ParseException {
         qgm();
     }
-    static void qgm() throws IOException {
+    static void qgm() throws IOException, ParseException {
         String url = "http://ws.okbqa.org:38401/queries?max_hop=1";
         URL object = new URL(url);
 
@@ -32,6 +34,6 @@ public class qgm {
         wr.flush();
 
         //display what returns the POST request
-        result(con, "agm");
+        result(con, "qgm");
     }
 }

@@ -1,5 +1,7 @@
 package service_check.module;
 
+import org.json.simple.parser.ParseException;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -11,7 +13,7 @@ import static service_check.main.result;
  * Created by Sung9 on 2017. 5. 10..
  */
 public class agm {
-    public static void agm_check() throws IOException {
+    public static void agm_check() throws IOException, ParseException {
         String url = "http://ws.okbqa.org:7745/agm";
         URL object = new URL(url);
 

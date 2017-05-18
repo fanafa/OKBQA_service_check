@@ -1,5 +1,7 @@
 package service_check.module;
 
+import org.json.simple.parser.ParseException;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -25,11 +27,11 @@ import static service_check.main.result;
  */
 
 public class dm {
-    public static void dm_check() throws IOException {
+    public static void dm_check() throws IOException, ParseException {
         dm_en();
         dm_ko();
     }
-    static void dm_en() throws IOException {
+    static void dm_en() throws IOException, ParseException {
         String url = "http://ws.okbqa.org:2357/agdistis/run?data=%7B%22query%22%3A+%22SELECT+%3Fv4+WHERE+%7B+%3Fv4+%3Fv2+%3Fv6+%3B+%3Fv7+%3Fv3+.+%7D+%22%2C%22slots%22%3A+%5B%7B%22p%22%3A+%22is%22%2C%22s%22%3A+%22v7%22%2C%22o%22%3A+%22%3Chttp%3A%2F%2Flodqa.org%2Fvocabulary%2Fsort_of%3E%22%7D%2C%7B%22p%22%3A+%22is%22%2C%22s%22%3A+%22v3%22%2C%22o%22%3A+%22rdf%3AClass%22%7D%2C%7B%22p%22%3A+%22verbalization%22%2C%22s%22%3A+%22v3%22%2C%22o%22%3A+%22rivers%22%7D%2C%7B%22p%22%3A+%22is%22%2C%22s%22%3A+%22v2%22%2C%22o%22%3A+%22rdf%3AProperty%22%7D%2C%7B%22p%22%3A+%22verbalization%22%2C%22s%22%3A+%22v2%22%2C%22o%22%3A+%22flow%22%7D%2C%7B%22p%22%3A+%22is%22%2C%22s%22%3A+%22v6%22%2C%22o%22%3A+%22rdf%3AResource%7Crdfs%3ALiteral%22%7D%2C%7B%22p%22%3A+%22verbalization%22%2C%22s%22%3A+%22v6%22%2C%22o%22%3A+%22Seoul%22%7D%5D%2C%22score%22%3A+%221.0%22%2C%22question%22%3A+%22Which+rivers+flow+through+Seoul%22%7D";
         URL object = new URL(url);
 
@@ -41,11 +43,11 @@ public class dm {
         //System.out.println(con.getResponseCode() + " " + con.getResponseMessage());
 
         //display what returns the POST request
-        result(con, "dm_ko");
+        result(con, "dm_en");
 
 
     }
-    static void dm_ko() throws IOException {
+    static void dm_ko() throws IOException, ParseException {
         String url = "http://ws.okbqa.org:32559/korean_dm";
         URL object = new URL(url);
 

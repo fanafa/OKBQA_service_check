@@ -75,17 +75,16 @@ public class mail_send {
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("fanafa0@gmail.com"));
                     message.setText("Your OKBQA module \"English DM\" has problem. " +
-                            "\n/ 당신의 OKBQA 모듈 \"영어 DM\" 에서 문제가 발생했습니다"
+                            "/ 당신의 OKBQA 모듈 \"영어 DM\" 에서 문제가 발생했습니다. "
                             + "\n\nPlease check your module. / 모듈을 확인 바랍니다. \n\n"
                             + " Error : " + error );//내용
                     break;
                 case "dm_ko" :
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("fanafa0@gmail.com"));
-                    message.setText("Your OKBQA module \"Korean DM\" has problem. " +
-                            "\n/ 당신의 OKBQA 모듈 \"한국어 DM\" 에서 문제가 발생했습니다"
-                            + "\n\nPlease check your module. / 모듈을 확인 바랍니다. \n\n"
-                            + " Error : " + error );//내용
+                    message.setText("당신의 OKBQA 모듈 \"한국어 DM\" 에서 문제가 발생했습니다. "
+                            + "\n\n모듈의 작동 상태를 확인 바랍니다. "
+                            + " \n\n Error : " + error );//내용
                     break;
                 case "qgm" :
                     message.setRecipients(Message.RecipientType.TO,
@@ -113,5 +112,8 @@ public class mail_send {
         } catch(Exception e){
             e.printStackTrace();
         }
+    }
+    public static void mail_send_null(){
+
     }
 }
