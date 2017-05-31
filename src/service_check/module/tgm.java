@@ -14,6 +14,7 @@ import static service_check.main.result;
  * Created by Sung9 on 2017. 5. 10..
  */
 
+//TGM의 경우 내부 모듈 이상 시 slot:[] 으로 return됨. 해당 부분 체크하여 이상 판별
 public class tgm {
     public static void tgm_check() throws IOException, ParseException {
         tgm_en();

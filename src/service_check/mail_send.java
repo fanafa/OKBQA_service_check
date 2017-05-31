@@ -102,6 +102,7 @@ public class mail_send {
             System.out.println("Sending...");
             Transport.send(message);
             System.out.println("Send mail completed.");
+            file_r.close();
 
         } catch(Exception e){
             e.printStackTrace();
