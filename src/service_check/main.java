@@ -34,9 +34,9 @@ public class main {
             System.out.println("AGM Checking...");
             agm.agm_check();
 
-            System.out.println("Retry 10 minutes later.");
+            System.out.println("Retry 60 minutes later.");
             System.out.println(stringTime + "\n\n");
-            Thread.sleep(10 * min);
+            Thread.sleep(60 * min);
         }
     }
 
